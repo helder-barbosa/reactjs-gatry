@@ -1,6 +1,12 @@
 # Gatry Clone with ReactJS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project are a clone of Gatry, a website for Promotions.
+
+Possible actions:
+
+- Create new promotions.
+- Update promotions.
+- Comments of users.
 
 ## Available Scripts
 
