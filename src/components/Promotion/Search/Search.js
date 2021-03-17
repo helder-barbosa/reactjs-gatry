@@ -55,7 +55,6 @@ const PromotionSearch = () => {
           ...newRequestInfo.data,
         ]
       })
-
     })
     setPage(newPage)
   }

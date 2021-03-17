@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import './Form.css'
-import axios from 'axios'
 import { useHistory } from 'react-router-dom'
 import useAPI from 'components/utils/useAPI'
+import { Formik, Form } from 'formik'
+import Field from 'components/Form/Field/Field'
+import schema from './schema'
 
 const initialValue = {
   title: "",
@@ -12,14 +14,10 @@ const initialValue = {
 }
 
 const PromotionForm = ({ id }) => {
-  const [values, setValues] = useState(id ? null : initialValue)
   const history = useHistory()
-  const [load] = useAPI({
+  const [load, loadInfo] = useAPI({
     url: `/promotions/${id}`,
-    method: 'get',
-    onCompleted: (response) => {
-      setValues(response.data)
-    }
+    method: 'get'
   })
 
   const [save, saveInfo] = useAPI({
@@ -38,17 +36,14 @@ const PromotionForm = ({ id }) => {
     }
   }, [id])
 
-  function onChange(ev) {
-    const { name, value } = ev.target
-    setValues({ ...values, [name]: value })
-  }
 
-  function onSubmit(ev) {
-    ev.preventDefault()
+  function onSubmit(formValues) {
     save({
-      data: values,
+      data: formValues,
     })
   }
+
+  const values = id ? loadInfo.data : initialValue
 
   return (
     <div>
@@ -57,28 +52,31 @@ const PromotionForm = ({ id }) => {
       {!values
         ? (<div>Carregando...</div>)
         : (
-          <form onSubmit={onSubmit}>
-            {saveInfo.loading && <span>Salvando dados...</span>}
-            <div className="promotion-form__group">
-              <label htmlFor="title">Título</label>
-              <input id="title" name="title" type="text" onChange={onChange} value={values.title} />
-            </div>
-            <div className="promotion-form__group">
-              <label htmlFor="url">Link</label>
-              <input id="url" name="url" type="text" onChange={onChange} value={values.url} />
-            </div>
-            <div className="promotion-form__group">
-              <label htmlFor="imageUrl">Imagem (URL)</label>
-              <input id="imageUrl" name="imageUrl" type="text" onChange={onChange} value={values.imageUrl} />
-            </div>
-            <div className="promotion-form__group">
-              <label htmlFor="price">Preço</label>
-              <input id="price" name="price" type="number" step=",01" onChange={onChange} value={values.price} />
-            </div>
-            <div>
-              <button type="submit">Salvar</button>
-            </div>
-          </form>
+          <Formik
+            initialValues={values}
+            onSubmit={onSubmit}
+            validationSchema={schema}
+            render={({ errors, touched }) => (
+              <Form>
+                {saveInfo.loading && <span>Salvando dados...</span>}
+                <div className="promotion-form__group">
+                  <Field name="title" type="text" label={'Título'} />
+                </div>
+                <div className="promotion-form__group">
+                  <Field name="url" type="text" label={'Link'} />
+                </div>
+                <div className="promotion-form__group">
+                  <Field name="imageUrl" type="text" label={'Imagem (URL)'} />
+                </div>
+                <div className="promotion-form__group">
+                  <Field name="price" type="number" step=",01" label={'Preço'} />
+                </div>
+                <div>
+                  <button type="submit">Salvar</button>
+                </div>
+              </Form>
+            )} />
+
         )}
 
     </div>
