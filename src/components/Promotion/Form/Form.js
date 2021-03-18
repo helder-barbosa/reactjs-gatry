@@ -5,6 +5,7 @@ import useAPI from 'components/utils/useAPI'
 import { Formik, Form } from 'formik'
 import Field from 'components/Form/Field/Field'
 import schema from './schema'
+import UIButton from 'components/UI/Button/Button'
 
 const initialValue = {
   title: "",
@@ -72,7 +73,7 @@ const PromotionForm = ({ id }) => {
                   <Field name="price" type="number" step=",01" label={'Preço'} />
                 </div>
                 <div>
-                  <button type="submit">Salvar</button>
+                  <UIButton component="button" type="submit">Salvar</UIButton>
                 </div>
               </Form>
             )} />
