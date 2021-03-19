@@ -40,7 +40,6 @@ export default function useAPI(config) {
 
     try {
       response = await fn(finalConfig)
-      console.log(response.headers)
 
       const newRequestInfo = {
         ...initialRequestInfo,
