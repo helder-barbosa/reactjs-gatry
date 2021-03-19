@@ -1,35 +1,39 @@
 # Gatry Clone with ReactJS
 
-This project are a clone of Gatry, a website for Promotions.
+[![HitCount](https://hits.dwyl.com/helder-barbosa/helder-barbosa/reactjs-gatry.svg)](https://hits.dwyl.com/helder-barbosa/helder-barbosa/reactjs-gatry)
 
-Possible actions:
 
-- Create new promotions.
-- Update promotions.
-- Comments of users.
+## Início
 
-## Available Scripts
+Website for Promotions.
 
-In the project directory, you can run:
+### Pré-requisitos:
 
-### `npm start`
+Você precisa do NodeJS e do NPM instalado em sua máquina.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- O projeto utiliza uma API feita localmente com o Json-Server para armazenamento de dados.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```
+npm install
+npm start
+```
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Construído com:
 
-### `npm run build`
+* [ReactJS](https://reactjs.org/) - A Javascript library.
+* [Axios](https://www.npmjs.com/package/axios) - HTTP Requests.
+* [Formik](https://formik.org/docs/overview) - React Forms.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Author:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* **Helder Barbosa** - [LinkedIn](https://www.linkedin.com/in/helder-barbosa1/)
 
+
+## Licença
+
+Este projeto é licenciado sobre a licença MIT - veja [LICENSE.md](LICENSE.md) para mais informações.
+
+## Acknowledgments
+
+* Este projeto foi construído durante as aulas do [Vinicius Dacal](https://www.youtube.com/channel/UClivdzft5YgnZfindGaLYxg).
