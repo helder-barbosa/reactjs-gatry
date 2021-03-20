@@ -11,12 +11,11 @@ Website for Promotions.
 
 Você precisa do NodeJS e do NPM instalado em sua máquina.
 
-- O projeto utiliza uma API feita localmente com o Json-Server para armazenamento de dados.
-
 ```
 npm install
 npm start
 ```
+### O projeto utiliza uma API feita localmente com o Json-Server para armazenamento de dados.
 
 
 ## Construído com:
